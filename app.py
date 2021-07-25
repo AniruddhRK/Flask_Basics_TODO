@@ -12,9 +12,6 @@ class Task(db.Model):
     task = db.Column(db.String(100),nullable=False)
     date_created = db.Column(db.DateTime,default=datetime.utcnow)
     completed = db.Column(db.Boolean,default=False)
-    
-    # def __repr__(self):
-        # return '<Name%r> %self.id'
 @app.route('/',methods=['GET','POST'])
 def index():
     title = "TODO"
@@ -63,4 +60,4 @@ def delete(id):
         db.session.commit()
         return redirect('/Add')
     except:
-        return 'There occured an error in Deleting a task!!'
+        return 'There occured an error while deleting a task!!'
